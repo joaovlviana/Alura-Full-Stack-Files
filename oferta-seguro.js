@@ -3,7 +3,7 @@ const cliente = {
   idade: 36,
   cpf: '12543652266',
   email: 'andre@email.com',
-  fones: [ '5591235498', '5521988743124' ],
+  fones: ['5591235498', '5521988743124'],
   dependentes: [
     {
       nome: 'Sara Silva',
@@ -21,15 +21,13 @@ const cliente = {
   }
 }
 
-let relatorio="";
-
-for ( let info in cliente){
-    if(typeof cliente[info] === "object" || typeof cliente[info] === "function"){
-        continue
-    }else{
-        relatorio += `
-        ${info} ==> ${cliente[info]}
-        `
-    }    
+function oferecerSeguro(obj){
+  const propsClientes = Object.keys(obj);
+  if(propsClientes.includes("dependentes"))
+  {
+    console.log(`Oferta de seguro de vida para ${obj.nome}`);
+  }
 }
-console.log(relatorio)
+console.log(Object.values(cliente))
+console.log(Object.entries(cliente))
+oferecerSeguro(cliente)
